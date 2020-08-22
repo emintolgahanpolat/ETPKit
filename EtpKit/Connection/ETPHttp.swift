@@ -10,13 +10,7 @@ import UIKit
 
 
 class ETPHtttp {
-    private static var instance : ETPHtttp? = nil
-    static func newInstance ()-> ETPHtttp {
-        if (instance == nil){
-            instance = ETPHtttp()
-        }
-        return instance!
-    }
+     static var shared : ETPHtttp = ETPHtttp()
     
     func get<T : Codable>(_ url: String, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil ){
         self.get(URL(string: url)!, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback: loadingCallback)

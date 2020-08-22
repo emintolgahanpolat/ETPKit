@@ -73,19 +73,28 @@ class NavigationBarViewController: ETPViewController {
     @IBAction func postAction(_ sender: Any) {
         let gCat = GraffituCategory(name: "Biography")
         let graffituCreate : GraffituModel? =  GraffituModel(body: "Body", createdBy: nil, createdDate: nil, description: "Açıklama", graffituCategories: [gCat], lastModifiedBy: nil, lastModifiedDate: nil, title: "iOS Title", uuid: nil)
-        ETPHtttp.newInstance().post("http://192.168.1.103:3000/graffitu", body: graffituCreate , parameters: ["Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"] , successCallback: {
-            (res: GraffituModel?) in
-            
-            
-        }, errorCallback: {
-            error in
-            
+    //    ETPHtttp.shared.post("http://192.168.1.103:3000/graffitu", body: graffituCreate , headers: ["Authorization":"Bearer //eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ//.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"] , successCallback: {
+    //        (res: GraffituModel?) in
+    //
+    //
+    //    }, errorCallback: {
+    //        error in
+    //
+    //    },loadingCallback: {
+    //        isLoading in
+    //    })
+        
+        APIHelper(method: .post, path: .graffitu).build(graffituCreate ,successCallback: {
+              (res: GraffituModel?) in
         },loadingCallback: {
             isLoading in
+            DispatchQueue.main.async {
+                self.title = "\(isLoading)"
+            }
         })
     }
     func getCaptcha(){
-        ETPHtttp.newInstance().get("http://192.168.1.103:3000/captcha", successCallback: {
+        ETPHtttp.shared.get("http://192.168.1.102:3000/captcha", successCallback: {
             (res: CaptchaResponse?) in
             self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
         },  loadingCallback :{

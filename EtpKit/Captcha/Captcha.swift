@@ -24,7 +24,6 @@ class Captcha : ETPView  {
     }
     private lazy var imageView :UIImageView = {
         var view = UIImageView()
-        view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -85,7 +84,7 @@ class Captcha : ETPView  {
         
         cornerRadius = 8
         borderWidth = 1
-        borderColor = .red
+        borderColor = .systemBlue
         
     }
     

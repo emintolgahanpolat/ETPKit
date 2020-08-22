@@ -173,56 +173,6 @@
                                     <constraint firstAttribute="height" constant="48" id="4a5-FL-IYp"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="t2D-YG-EvH">
-                                <rect key="frame" x="107" y="368" width="200" height="72"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvn-ou-6IB" customClass="ETPTag" customModule="EtpKit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34.5"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Yeni"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="1" height="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3K-cT-OdG" customClass="EtpButton" customModule="EtpKit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="37.5" width="200" height="34.5"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Yeni">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isVibrate" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTappedSizeAnim" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                <size key="value" width="1" height="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="postAction:" destination="jM4-Yx-9cX" eventType="touchUpInside" id="OFe-sM-zqX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="oje-d4-ugw"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-MP-XMo" customClass="Captcha" customModule="EtpKit" customModuleProvider="target">
                                 <rect key="frame" x="20" y="98" width="374" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -230,14 +180,64 @@
                                     <constraint firstAttribute="height" constant="100" id="Ln3-vh-RxN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3K-cT-OdG" customClass="EtpButton" customModule="EtpKit" customModuleProvider="target">
+                                <rect key="frame" x="107" y="218" width="200" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="vzB-wp-KLA"/>
+                                </constraints>
+                                <state key="normal" title="Yeni">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVibrate" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isTappedSizeAnim" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="postAction:" destination="jM4-Yx-9cX" eventType="touchUpInside" id="OFe-sM-zqX"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvn-ou-6IB" customClass="ETPTag" customModule="EtpKit" customModuleProvider="target">
+                                <rect key="frame" x="107" y="268" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Kii-55-ksw"/>
+                                    <constraint firstAttribute="height" constant="50" id="WtJ-9E-bA8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Yeni"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="t2D-YG-EvH" firstAttribute="centerX" secondItem="ejV-uS-F5O" secondAttribute="centerX" id="Vky-fY-Oqs"/>
+                            <constraint firstItem="t3K-cT-OdG" firstAttribute="centerX" secondItem="ejV-uS-F5O" secondAttribute="centerX" id="0ge-xQ-4mZ"/>
+                            <constraint firstItem="t3K-cT-OdG" firstAttribute="top" secondItem="9sW-MP-XMo" secondAttribute="bottom" constant="20" id="Fl9-eg-ppt"/>
+                            <constraint firstItem="vvn-ou-6IB" firstAttribute="centerX" secondItem="ejV-uS-F5O" secondAttribute="centerX" id="NSN-Ef-iyd"/>
+                            <constraint firstItem="vvn-ou-6IB" firstAttribute="top" secondItem="t3K-cT-OdG" secondAttribute="bottom" constant="20" id="S4P-xP-mh1"/>
                             <constraint firstItem="CdR-Wp-KvD" firstAttribute="leading" secondItem="EbI-cf-6sA" secondAttribute="leading" id="Wuz-rd-WaF"/>
-                            <constraint firstItem="EbI-cf-6sA" firstAttribute="bottom" secondItem="t2D-YG-EvH" secondAttribute="bottom" constant="334" id="X0d-0e-7TE"/>
                             <constraint firstAttribute="trailing" secondItem="CdR-Wp-KvD" secondAttribute="trailing" id="eeK-rG-WBc"/>
-                            <constraint firstItem="t2D-YG-EvH" firstAttribute="centerY" secondItem="ejV-uS-F5O" secondAttribute="centerY" id="ggW-AH-ffS"/>
                             <constraint firstItem="9sW-MP-XMo" firstAttribute="leading" secondItem="EbI-cf-6sA" secondAttribute="leading" constant="20" id="kij-bW-a3J"/>
                             <constraint firstItem="EbI-cf-6sA" firstAttribute="trailing" secondItem="9sW-MP-XMo" secondAttribute="trailing" constant="20" id="ljB-5A-efR"/>
                             <constraint firstItem="CdR-Wp-KvD" firstAttribute="top" secondItem="EbI-cf-6sA" secondAttribute="top" id="mNo-1C-c7c"/>

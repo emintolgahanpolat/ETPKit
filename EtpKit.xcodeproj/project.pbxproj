@@ -167,8 +167,8 @@
 		A77D21E624308B5F00374548 /* EtpKit */ = {
 			isa = PBXGroup;
 			children = (
-				A77D21FF243095BD00374548 /* Font-Ex.swift */,
 				A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */,
+				A77D21FF243095BD00374548 /* Font-Ex.swift */,
 				A7D716EF2477C92000F302D2 /* UIColorEx.swift */,
 				A77D21FD24308C9900374548 /* Extension.swift */,
 				A78147AD24F02B4100350F30 /* Picker */,

@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         addBottomSheetView()
         
         
-        
+        UserDefaults.User.accessToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"
         
         titleLabel.font = UIFont.init(name:.Helvetica, type: .Bold, size: 12)
         titleLabel.text = "Emin Tolgahan polat"//UserDefaults.standard.username

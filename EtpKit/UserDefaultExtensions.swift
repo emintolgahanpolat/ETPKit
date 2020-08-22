@@ -9,7 +9,7 @@
 import Foundation
 
 enum UserDefaultKeys:String {
-    case imageHistory, username,password
+    case imageHistory, username,password,accessToken,refreshToken
 }
 private extension UserDefaults {
     
@@ -34,7 +34,7 @@ private extension UserDefaults {
 
 extension UserDefaults{
     class User {
-        var username: String? {
+       class var username: String? {
             get {
                 return UserDefaults.standard[.username]
             }
@@ -42,12 +42,30 @@ extension UserDefaults{
                 UserDefaults.standard[.username] = newValue
             }
         }
-        var password: String? {
+       class var password: String? {
             get {
                 return UserDefaults.standard[.password]
             }
             set {
                 UserDefaults.standard[.password] = newValue
+            }
+        }
+        
+       class var accessToken: String {
+            get {
+                return UserDefaults.standard[.accessToken] ?? ""
+            }
+            set {
+                UserDefaults.standard[.accessToken] = newValue
+            }
+        }
+        
+       class var refreshToken: String {
+            get {
+                return UserDefaults.standard[.refreshToken]  ?? ""
+            }
+            set {
+                UserDefaults.standard[.refreshToken] = newValue
             }
         }
     }
