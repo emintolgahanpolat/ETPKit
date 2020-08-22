@@ -18,31 +18,31 @@ class ETPHtttp {
         return instance!
     }
     
-    func get<T : Codable>(_ url: String, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
-        self.get(URL(string: url)!, parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+    func get<T : Codable>(_ url: String, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil ){
+        self.get(URL(string: url)!, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback: loadingCallback)
     }
     
-    func get<T : Codable>(_ url: URL, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
+    func get<T : Codable>(_ url: URL, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        self.request(request,parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+        self.request(request,headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func delete<T : Codable>(_ url: String, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
-        self.get(URL(string: url)!, parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+    func delete<T : Codable>(_ url: String, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+        self.delete(URL(string: url)!, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func delete<T : Codable>(_ url: URL, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
+    func delete<T : Codable>(_ url: URL, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
-        self.request(request,parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+        self.request(request,headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func post<T : Codable,B :Codable>(_ url: String,  body: B?, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
-        self.post(URL(string: url)!,body: body, parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+    func post<T : Codable,B :Codable>(_ url: String,  body: B?, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+        self.post(URL(string: url)!,body: body, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func post<T : Codable,B :Codable>(_ url: URL, body: B?, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
+    func post<T : Codable,B :Codable>(_ url: URL, body: B?, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -50,16 +50,16 @@ class ETPHtttp {
             let jsonBody = try JSONEncoder().encode(body)
             request.httpBody = jsonBody
         }catch let error {
-            errorCallback(error)
+            errorCallback?(error)
         }
-        self.request(request,parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+        self.request(request,headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func put<T : Codable,B :Codable>(_ url: String,  body: B?, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
-        self.post(URL(string: url)!,body: body, parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+    func put<T : Codable,B :Codable>(_ url: String,  body: B?, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+        self.put(URL(string: url)!,body: body, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func put<T : Codable,B :Codable>(_ url: URL, body: B?, parameters:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
+    func put<T : Codable,B :Codable>(_ url: URL, body: B?, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         
@@ -67,52 +67,44 @@ class ETPHtttp {
             let jsonBody = try JSONEncoder().encode(body)
             request.httpBody = jsonBody
         }catch let error {
-            errorCallback(error)
+            errorCallback?(error)
         }
         
-        self.request(request,parameters: parameters, successCallback: successCallback, errorCallback: errorCallback)
+        self.request(request,headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    private func request<T : Codable>(_ request: URLRequest, parameters:[String: String]? = nil,successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
+    func request<T : Codable>(_ request: URLRequest, headers:[String: String]? = nil,successCallback: @escaping (_ response : T?) -> Void, errorCallback:((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+        loadingCallback?(true)
         var newReq = request
-        parameters?.forEach{ key, value in
+        headers?.forEach{ key, value in
             newReq.setValue(value, forHTTPHeaderField: key)
         }
-        newReq.setValue("tr-TR", forHTTPHeaderField:  "Accept-Language")
-        newReq.setValue( "application/json", forHTTPHeaderField:  "Content-Type")
-        
+       
         
         let identifier = UUID()
         print("------\(identifier) Request Start------")
         print("Url : \(String(describing: newReq.url))")
         
-        print("Header : \(String(describing: parameters))")
+        print("Header : \(String(describing: headers))")
         print("Method : \(String(describing: newReq.httpMethod))")
         print("Body : \(String(describing: newReq.httpBody))")
         print("------\(identifier) Request End------")
         URLSession.shared.dataTask(with: newReq, completionHandler: { data, response, error in
+            loadingCallback?(false)
             print("------\(identifier) Response Start------")
             print("Url : \(String(describing: newReq.url))")
-            print("Header : \(String(describing: parameters))")
+            print("Header : \(String(describing: headers))")
             print("Method : \(String(describing: newReq.httpMethod))")
             print("Body : \(String(describing: newReq.httpBody))")
-            if let httpResponse = response as? HTTPURLResponse {
-                print("StatusCode : \(String(describing: httpResponse.statusCode))")
-                if (httpResponse.statusCode == 200 ){
-                    if let data = data {
-                        do {
-                            if let res = try JSONDecoder().decode(T?.self, from: data){
-                                print("Response : \(res)")
-                                successCallback(res)
-                            }
-                        } catch let error {
-                            errorCallback(error)
-                            print("Error : \(error)")
-                        }
+            if let data = data {
+                do {
+                    if let res = try JSONDecoder().decode(T?.self, from: data){
+                        print("Response : \(res)")
+                        successCallback(res)
                     }
-                }else{
-                    errorCallback(error)
-                    print("Error : \(String(describing: error))")
+                } catch let error {
+                    errorCallback?(error)
+                    print("Error : \(error)")
                 }
             }
             
@@ -120,4 +112,6 @@ class ETPHtttp {
             
         }).resume()
     }
+    
+    
 }

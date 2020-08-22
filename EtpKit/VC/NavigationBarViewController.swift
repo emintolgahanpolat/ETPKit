@@ -80,17 +80,29 @@ class NavigationBarViewController: ETPViewController {
         }, errorCallback: {
             error in
             
+        },loadingCallback: {
+            isLoading in
         })
     }
     func getCaptcha(){
         ETPHtttp.newInstance().get("http://192.168.1.103:3000/captcha", successCallback: {
             (res: CaptchaResponse?) in
-            
             self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
-        }, errorCallback: {
-            error in
-            
+        },  loadingCallback :{
+            isLoading in
+            DispatchQueue.main.async {
+                self.title = "\(isLoading)"
+            }
         })
+        
+        // ETPHtttp.newInstance().get("http://192.168.1.103:3000/captcha", successCallback: {
+        //     (res: CaptchaResponse?) in
+        //
+        //     self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
+        // }, errorCallback: {
+        //     error in
+        //
+        // })
     }
     
     @objc func action1(){

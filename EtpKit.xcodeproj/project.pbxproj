@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7291EE824F1175D0028A930 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EE724F1175D0028A930 /* APIHelper.swift */; };
 		A73AC4462467D66E001EFB36 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */; };
 		A73D0E3024EED1A70086ACA9 /* Captcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E2F24EED1A70086ACA9 /* Captcha.swift */; };
 		A73D0E3524EF0CCE0086ACA9 /* ETPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A7291EE724F1175D0028A930 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
 		A73D0E2F24EED1A70086ACA9 /* Captcha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Captcha.swift; sourceTree = "<group>"; };
 		A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPHttp.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */,
+				A7291EE724F1175D0028A930 /* APIHelper.swift */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				A7EF1684249B70FC0066849D /* ETPCache.swift in Sources */,
 				A77D21EA24308B5F00374548 /* SceneDelegate.swift in Sources */,
 				A7EF167E249A5F6F0066849D /* ETPImageView.swift in Sources */,
+				A7291EE824F1175D0028A930 /* APIHelper.swift in Sources */,
 				A75FDCB8249E56D2006BACC7 /* ETPActionBar.swift in Sources */,
 				A77D2200243095BD00374548 /* Font-Ex.swift in Sources */,
 				A73D0E3924EF11D10086ACA9 /* SecondViewController.swift in Sources */,
