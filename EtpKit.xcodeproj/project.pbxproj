@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A7291EE824F1175D0028A930 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EE724F1175D0028A930 /* APIHelper.swift */; };
+		A7291EEA24F142CC0028A930 /* ETPLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EE924F142CC0028A930 /* ETPLoading.swift */; };
 		A73AC4462467D66E001EFB36 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */; };
 		A73D0E3024EED1A70086ACA9 /* Captcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E2F24EED1A70086ACA9 /* Captcha.swift */; };
 		A73D0E3524EF0CCE0086ACA9 /* ETPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		A7291EE724F1175D0028A930 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		A7291EE924F142CC0028A930 /* ETPLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPLoading.swift; sourceTree = "<group>"; };
 		A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
 		A73D0E2F24EED1A70086ACA9 /* Captcha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Captcha.swift; sourceTree = "<group>"; };
 		A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPHttp.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				A77D21FB24308B8400374548 /* EtpAlertController.swift */,
+				A7291EE924F142CC0028A930 /* ETPLoading.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				A77D22022430ADEA00374548 /* PickerField.swift in Sources */,
 				A7D716F62498082E00F302D2 /* BottomViewController.swift in Sources */,
 				A77281F22440A0560079581F /* UIViewPager.swift in Sources */,
+				A7291EEA24F142CC0028A930 /* ETPLoading.swift in Sources */,
 				A7CEDF6324326BDA00714911 /* MaterialTextView.swift in Sources */,
 				A77D22082430AFA600374548 /* PhotoViewerViewCell.swift in Sources */,
 				A75FDCB3249E0650006BACC7 /* ETPNavigationItem.swift in Sources */,

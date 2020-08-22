@@ -100,7 +100,11 @@ class NavigationBarViewController: ETPViewController {
         },  loadingCallback :{
             isLoading in
             DispatchQueue.main.async {
-                self.title = "\(isLoading)"
+                if isLoading{
+                    ETPLoading.sharedInstance.show()
+                }else {
+                    ETPLoading.sharedInstance.hide()
+                }
             }
         })
         
