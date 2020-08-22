@@ -70,7 +70,8 @@ class ETPImageView: UIImageView {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if error != nil{
-                log.e(tag: "UIImageView.loadImageFrom", msg: "Resim Yüklenemedi")
+                
+                Log.e(tag: "UIImageView.loadImageFrom", msg: "Resim Yüklenemedi")
             }
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -107,7 +108,7 @@ extension UIImageView{
           URLSession.shared.dataTask(with: url) { (data, response, error) in
               
               if error != nil{
-                  log.e(tag: "UIImageView.loadImageFrom", msg: "Resim Yüklenemedi")
+                  Log.e(tag: "UIImageView.loadImageFrom", msg: "Resim Yüklenemedi")
               }
               guard
                   let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

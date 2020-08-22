@@ -24,7 +24,7 @@ class ETPNavigationBar: UINavigationBar {
         return CGSize(width: frame.width, height: 200)
     }
     private func setupUI(){
-        log.i(tag: "ETPNavigationBar", msg: "setupUI")
+        Log.i(tag: "ETPNavigationBar", msg: "setupUI")
        
         let backIndicator = UIImage(systemName: "arrow.left")?.withAlignmentRectInsets( UIEdgeInsets(top: 0, left: 0, bottom: 3, right: 0))
         tintColor = .black

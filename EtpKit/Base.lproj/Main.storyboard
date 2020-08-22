@@ -215,7 +215,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="jM4-Yx-9cX" kind="show" id="7Vz-DG-RLb"/>
+                                            <action selector="postAction:" destination="jM4-Yx-9cX" eventType="touchUpInside" id="OFe-sM-zqX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,7 +247,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="App Name" id="4jY-rV-ehb" customClass="ETPNavigationItem" customModule="EtpKit" customModuleProvider="target"/>
                     <connections>
-                        <outlet property="captchaView" destination="9sW-MP-XMo" id="b6G-30-Jkq"/>
+                        <outlet property="captchaView" destination="9sW-MP-XMo" id="msw-Ix-jjW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="407-bF-wtn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

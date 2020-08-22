@@ -67,7 +67,7 @@ struct etp{
     
     #endif
 }
-
+@IBDesignable
 class ETPView: UIView {
   
 }

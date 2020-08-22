@@ -164,6 +164,13 @@
 		A77D21E624308B5F00374548 /* EtpKit */ = {
 			isa = PBXGroup;
 			children = (
+				A77D21FF243095BD00374548 /* Font-Ex.swift */,
+				A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */,
+				A7D716EF2477C92000F302D2 /* UIColorEx.swift */,
+				A77D21FD24308C9900374548 /* Extension.swift */,
+				A78147AD24F02B4100350F30 /* Picker */,
+				A78147AC24F02B0500350F30 /* ViewPager */,
+				A78147AB24F02ADC00350F30 /* Ex */,
 				A73D0E3724EF0DCC0086ACA9 /* SwipeView */,
 				A73D0E3624EF0DAE0086ACA9 /* Alert */,
 				A73D0E3324EF0C4E0086ACA9 /* Connection */,
@@ -184,16 +191,10 @@
 				A77D21F024308B6100374548 /* Assets.xcassets */,
 				A77D21F224308B6100374548 /* LaunchScreen.storyboard */,
 				A77D21F524308B6100374548 /* Info.plist */,
-				A77D21FD24308C9900374548 /* Extension.swift */,
-				A77D21FF243095BD00374548 /* Font-Ex.swift */,
-				A77D22012430ADEA00374548 /* PickerField.swift */,
 				A7CEDF5E2432287600714911 /* TTGSnackbar.swift */,
 				A7CEDF6024324B5C00714911 /* MaterialTextField.swift */,
 				A7CEDF6224326BDA00714911 /* MaterialTextView.swift */,
 				A7DA2CE324327D8000CB9E85 /* TLFloatLabelTextView.swift */,
-				A77281F12440A0560079581F /* UIViewPager.swift */,
-				A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */,
-				A7D716EF2477C92000F302D2 /* UIColorEx.swift */,
 				A73D0E3824EF11D10086ACA9 /* SecondViewController.swift */,
 			);
 			path = EtpKit;
@@ -207,6 +208,29 @@
 				A77D22072430AFA600374548 /* PhotoViewerViewCell.xib */,
 			);
 			path = PhotoViewer;
+			sourceTree = "<group>";
+		};
+		A78147AB24F02ADC00350F30 /* Ex */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ex;
+			sourceTree = "<group>";
+		};
+		A78147AC24F02B0500350F30 /* ViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				A77281F12440A0560079581F /* UIViewPager.swift */,
+			);
+			path = ViewPager;
+			sourceTree = "<group>";
+		};
+		A78147AD24F02B4100350F30 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				A77D22012430ADEA00374548 /* PickerField.swift */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		A7D716EC2477C85600F302D2 /* Button */ = {

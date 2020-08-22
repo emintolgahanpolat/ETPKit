@@ -63,9 +63,9 @@ extension UIColor {
   @objc class open dynamic var ttgDefaultBackground : UIColor {
     if #available(iOS 13, *) {
       // Meaning It's black in lighter mode and white in dark mode.
-      return UIColor(hex: 0x717171,a: 1.0) //UIColor.label.withAlphaComponent(0.8)
+        return UIColor(white: 0x717171,alpha: 1.0) //UIColor.label.withAlphaComponent(0.8)
     } else {
-      return UIColor(hex: 0x717171,a: 1.0)//UIColor.init(white: 0, alpha: 0.8)
+        return UIColor(white: 0x717171,alpha: 1.0)//UIColor.init(white: 0, alpha: 0.8)
     }
   }
 

@@ -62,7 +62,7 @@ class ETPActionBar: UIView{
     override func layoutSubviews() {
          super.layoutSubviews()
         subviews.forEach{(item) in
-            log.i(tag: "SubView", msg:"\( item.classForCoder == UIButton.self)")
+            Log.i(tag: "SubView", msg:"\( item.classForCoder == UIButton.self)")
             
             if  item.classForCoder == UIButton.self {
                     

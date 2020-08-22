@@ -76,36 +76,46 @@ class ETPHtttp {
     private func request<T : Codable>(_ request: URLRequest, parameters:[String: String]? = nil,successCallback: @escaping (_ response : T?) -> Void, errorCallback: @escaping (_ error : Error?) -> Void){
         var newReq = request
         parameters?.forEach{ key, value in
-            newReq.setValue(key, forHTTPHeaderField: value)
+            newReq.setValue(value, forHTTPHeaderField: key)
         }
+        newReq.setValue("tr-TR", forHTTPHeaderField:  "Accept-Language")
+        newReq.setValue( "application/json", forHTTPHeaderField:  "Content-Type")
+        
+        
         let identifier = UUID()
         print("------\(identifier) Request Start------")
-        print("Url : \(String(describing: request.url))")
-      
+        print("Url : \(String(describing: newReq.url))")
+        
         print("Header : \(String(describing: parameters))")
-        print("Method : \(String(describing: request.httpMethod))")
-        print("Body : \(String(describing: request.httpBody))")
+        print("Method : \(String(describing: newReq.httpMethod))")
+        print("Body : \(String(describing: newReq.httpBody))")
         print("------\(identifier) Request End------")
         URLSession.shared.dataTask(with: newReq, completionHandler: { data, response, error in
             print("------\(identifier) Response Start------")
-            print("Url : \(String(describing: request.url))")
+            print("Url : \(String(describing: newReq.url))")
             print("Header : \(String(describing: parameters))")
-            print("Method : \(String(describing: request.httpMethod))")
-            print("Body : \(String(describing: request.httpBody))")
-            if let data = data {
-                do {
-                    if let res = try JSONDecoder().decode(T?.self, from: data){
-                        
-                        print("Response : \(res)")
-                        
-                        successCallback(res)
-                        
+            print("Method : \(String(describing: newReq.httpMethod))")
+            print("Body : \(String(describing: newReq.httpBody))")
+            if let httpResponse = response as? HTTPURLResponse {
+                print("StatusCode : \(String(describing: httpResponse.statusCode))")
+                if (httpResponse.statusCode == 200 ){
+                    if let data = data {
+                        do {
+                            if let res = try JSONDecoder().decode(T?.self, from: data){
+                                print("Response : \(res)")
+                                successCallback(res)
+                            }
+                        } catch let error {
+                            errorCallback(error)
+                            print("Error : \(error)")
+                        }
                     }
-                } catch let error {
+                }else{
                     errorCallback(error)
-                    print("Error : \(error)")
+                    print("Error : \(String(describing: error))")
                 }
             }
+            
             print("------\(identifier) Response End------")
             
         }).resume()

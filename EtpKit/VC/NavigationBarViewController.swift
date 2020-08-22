@@ -12,19 +12,36 @@ struct CaptchaResponse : Codable {
     
     let captcha : String?
     
-    enum CodingKeys: String, CodingKey {
-        case captcha = "captcha"
-    }
+}
+struct GraffituModel : Codable {
     
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        captcha = try values.decodeIfPresent(String.self, forKey: .captcha)
-    }}
+    let body : String
+    let createdBy : String?
+    let createdDate : String?
+    let description : String
+    let graffituCategories : [GraffituCategory]
+    let lastModifiedBy : String?
+    let lastModifiedDate : String?
+    let title : String
+    let uuid : String?
+    
+    
+    
+    
+}
+
+struct GraffituCategory : Codable {
+    
+    let name : String?
+    
+    
+}
 
 class NavigationBarViewController: ETPViewController {
     
     
-    @IBOutlet var captchaView: Captcha!
+    @IBOutlet weak var captchaView: Captcha!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -44,7 +61,7 @@ class NavigationBarViewController: ETPViewController {
         //navigationItem.rightBarButtonItems = [play,add]
         setRightBarButton( [play,add])
         
-     
+        
         getCaptcha()
         
         self.captchaView.refreshCallback {
@@ -53,15 +70,27 @@ class NavigationBarViewController: ETPViewController {
         
     }
     
+    @IBAction func postAction(_ sender: Any) {
+        let gCat = GraffituCategory(name: "Biography")
+        let graffituCreate : GraffituModel? =  GraffituModel(body: "Body", createdBy: nil, createdDate: nil, description: "Açıklama", graffituCategories: [gCat], lastModifiedBy: nil, lastModifiedDate: nil, title: "iOS Title", uuid: nil)
+        ETPHtttp.newInstance().post("http://192.168.1.103:3000/graffitu", body: graffituCreate , parameters: ["Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"] , successCallback: {
+            (res: GraffituModel?) in
+            
+            
+        }, errorCallback: {
+            error in
+            
+        })
+    }
     func getCaptcha(){
         ETPHtttp.newInstance().get("http://192.168.1.103:3000/captcha", successCallback: {
-                 (res: CaptchaResponse?) in
-               
-                 self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
-             }, errorCallback: {
-                 error in
-               
-             })
+            (res: CaptchaResponse?) in
+            
+            self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
+        }, errorCallback: {
+            error in
+            
+        })
     }
     
     @objc func action1(){

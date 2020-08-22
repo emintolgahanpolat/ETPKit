@@ -66,7 +66,7 @@ extension UserDefaults{
         class func add(url:String){
             var oIH:[String] = history
             oIH.append(url)
-            log.i(tag: "Image Historry", msg: oIH.joined(separator: "\n"))
+            Log.i(tag: "Image Historry", msg: oIH.joined(separator: "\n"))
             history = oIH
         }
         class func remove(url:String){
@@ -74,7 +74,7 @@ extension UserDefaults{
             if let index = oIH.firstIndex(of: url) {
                 oIH.remove(at: index)
             }
-            log.i(tag: "Image Historry", msg: oIH.joined(separator: "\n"))
+            Log.i(tag: "Image Historry", msg: oIH.joined(separator: "\n"))
             history = oIH
         }
     }
