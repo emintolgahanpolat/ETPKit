@@ -73,19 +73,19 @@ class NavigationBarViewController: ETPViewController {
     @IBAction func postAction(_ sender: Any) {
         let gCat = GraffituCategory(name: "Biography")
         let graffituCreate : GraffituModel? =  GraffituModel(body: "Body", createdBy: nil, createdDate: nil, description: "Açıklama", graffituCategories: [gCat], lastModifiedBy: nil, lastModifiedDate: nil, title: "iOS Title", uuid: nil)
-    //    ETPHtttp.shared.post("http://192.168.1.103:3000/graffitu", body: graffituCreate , headers: ["Authorization":"Bearer //eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ//.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"] , successCallback: {
-    //        (res: GraffituModel?) in
-    //
-    //
-    //    }, errorCallback: {
-    //        error in
-    //
-    //    },loadingCallback: {
-    //        isLoading in
-    //    })
+        //    ETPHtttp.shared.post("http://192.168.1.103:3000/graffitu", body: graffituCreate , headers: ["Authorization":"Bearer //eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU5ODY1MDY3NSwiaWF0IjoxNTk4MDQ1ODc1fQ//.yEIff6OzcFnZbDmMk6mOI9ul9U5B0ALamPzX2CEtDUmqRZdQJKDbUfgj98TyzqR2qsEpPzf2BnVk43zaLR-WZg"] , successCallback: {
+        //        (res: GraffituModel?) in
+        //
+        //
+        //    }, errorCallback: {
+        //        error in
+        //
+        //    },loadingCallback: {
+        //        isLoading in
+        //    })
         
         APIHelper(method: .post, path: .graffitu).build(graffituCreate ,successCallback: {
-              (res: GraffituModel?) in
+            (res: GraffituModel) in
         },loadingCallback: {
             isLoading in
             DispatchQueue.main.async {
@@ -94,10 +94,10 @@ class NavigationBarViewController: ETPViewController {
         })
     }
     func getCaptcha(){
-        ETPHtttp.shared.get("http://192.168.1.102:3000/captcha", successCallback: {
+        APIHelper(method: .get, path: .captcha).build(successCallback: {
             (res: CaptchaResponse?) in
             self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
-        },  loadingCallback :{
+        }, loadingCallback: {
             isLoading in
             DispatchQueue.main.async {
                 if isLoading{
@@ -107,15 +107,21 @@ class NavigationBarViewController: ETPViewController {
                 }
             }
         })
-        
-        // ETPHtttp.newInstance().get("http://192.168.1.103:3000/captcha", successCallback: {
+        // ETPHtttp.shared.get("http://192.168.1.102:3000/captcha", successCallback: {
         //     (res: CaptchaResponse?) in
-        //
         //     self.captchaView.setCaptchaBase64(captcha: (res?.captcha)!)
-        // }, errorCallback: {
-        //     error in
-        //
+        // },  loadingCallback :{
+        //     isLoading in
+        //     DispatchQueue.main.async {
+        //         if isLoading{
+        //             ETPLoading.sharedInstance.show()
+        //         }else {
+        //             ETPLoading.sharedInstance.hide()
+        //         }
+        //     }
         // })
+        
+        
     }
     
     @objc func action1(){

@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		A7291EE824F1175D0028A930 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EE724F1175D0028A930 /* APIHelper.swift */; };
 		A7291EEA24F142CC0028A930 /* ETPLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EE924F142CC0028A930 /* ETPLoading.swift */; };
+		A7291EF024F2944B0028A930 /* AVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7291EEF24F2944B0028A930 /* AVViewController.swift */; };
 		A73AC4462467D66E001EFB36 /* UserDefaultExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */; };
 		A73D0E3024EED1A70086ACA9 /* Captcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E2F24EED1A70086ACA9 /* Captcha.swift */; };
 		A73D0E3524EF0CCE0086ACA9 /* ETPHttp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */; };
 		A73D0E3924EF11D10086ACA9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D0E3824EF11D10086ACA9 /* SecondViewController.swift */; };
+		A75DF0DB251C70DE00141E8C /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75DF0DA251C70DE00141E8C /* OTPFieldView.swift */; };
+		A75DF0DD251CA3A800141E8C /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75DF0DC251CA3A800141E8C /* OTPViewController.swift */; };
 		A75FDCB1249E0577006BACC7 /* ETPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FDCB0249E0577006BACC7 /* ETPNavigationBar.swift */; };
 		A75FDCB3249E0650006BACC7 /* ETPNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FDCB2249E0650006BACC7 /* ETPNavigationItem.swift */; };
 		A75FDCB8249E56D2006BACC7 /* ETPActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FDCB7249E56D2006BACC7 /* ETPActionBar.swift */; };
@@ -49,10 +52,13 @@
 /* Begin PBXFileReference section */
 		A7291EE724F1175D0028A930 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		A7291EE924F142CC0028A930 /* ETPLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPLoading.swift; sourceTree = "<group>"; };
+		A7291EEF24F2944B0028A930 /* AVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVViewController.swift; sourceTree = "<group>"; };
 		A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultExtensions.swift; sourceTree = "<group>"; };
 		A73D0E2F24EED1A70086ACA9 /* Captcha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Captcha.swift; sourceTree = "<group>"; };
 		A73D0E3424EF0CCE0086ACA9 /* ETPHttp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPHttp.swift; sourceTree = "<group>"; };
 		A73D0E3824EF11D10086ACA9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A75DF0DA251C70DE00141E8C /* OTPFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPFieldView.swift; sourceTree = "<group>"; };
+		A75DF0DC251CA3A800141E8C /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		A75FDCB0249E0577006BACC7 /* ETPNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPNavigationBar.swift; sourceTree = "<group>"; };
 		A75FDCB2249E0650006BACC7 /* ETPNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPNavigationItem.swift; sourceTree = "<group>"; };
 		A75FDCB7249E56D2006BACC7 /* ETPActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETPActionBar.swift; sourceTree = "<group>"; };
@@ -134,6 +140,25 @@
 			path = SwipeView;
 			sourceTree = "<group>";
 		};
+		A73FE307251E68BB00EFC206 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */,
+				A77D21FF243095BD00374548 /* Font-Ex.swift */,
+				A7D716EF2477C92000F302D2 /* UIColorEx.swift */,
+				A77D21FD24308C9900374548 /* Extension.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		A75DF0D7251C70AE00141E8C /* OTPView */ = {
+			isa = PBXGroup;
+			children = (
+				A75DF0DA251C70DE00141E8C /* OTPFieldView.swift */,
+			);
+			path = OTPView;
+			sourceTree = "<group>";
+		};
 		A75FDCAF249E050D006BACC7 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,10 +195,8 @@
 		A77D21E624308B5F00374548 /* EtpKit */ = {
 			isa = PBXGroup;
 			children = (
-				A73AC4452467D66E001EFB36 /* UserDefaultExtensions.swift */,
-				A77D21FF243095BD00374548 /* Font-Ex.swift */,
-				A7D716EF2477C92000F302D2 /* UIColorEx.swift */,
-				A77D21FD24308C9900374548 /* Extension.swift */,
+				A73FE307251E68BB00EFC206 /* Extention */,
+				A75DF0D7251C70AE00141E8C /* OTPView */,
 				A78147AD24F02B4100350F30 /* Picker */,
 				A78147AC24F02B0500350F30 /* ViewPager */,
 				A78147AB24F02ADC00350F30 /* Ex */,
@@ -202,6 +225,7 @@
 				A7CEDF6224326BDA00714911 /* MaterialTextView.swift */,
 				A7DA2CE324327D8000CB9E85 /* TLFloatLabelTextView.swift */,
 				A73D0E3824EF11D10086ACA9 /* SecondViewController.swift */,
+				A75DF0DC251CA3A800141E8C /* OTPViewController.swift */,
 			);
 			path = EtpKit;
 			sourceTree = "<group>";
@@ -284,6 +308,7 @@
 			children = (
 				A7EF1686249CCC6B0066849D /* NavigationBarViewController.swift */,
 				A7EF168C249D1C750066849D /* ETPViewController.swift */,
+				A7291EEF24F2944B0028A930 /* AVViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -366,6 +391,7 @@
 				A7EF168D249D1C750066849D /* ETPViewController.swift in Sources */,
 				A77D21FC24308B8400374548 /* EtpAlertController.swift in Sources */,
 				A73D0E3024EED1A70086ACA9 /* Captcha.swift in Sources */,
+				A75DF0DD251CA3A800141E8C /* OTPViewController.swift in Sources */,
 				A77D21EC24308B5F00374548 /* ViewController.swift in Sources */,
 				A7DA2CE424327D8000CB9E85 /* TLFloatLabelTextView.swift in Sources */,
 				A77D21E824308B5F00374548 /* AppDelegate.swift in Sources */,
@@ -383,8 +409,10 @@
 				A7D716F324977D9F00F302D2 /* ETPTag.swift in Sources */,
 				A7CEDF6124324B5C00714911 /* MaterialTextField.swift in Sources */,
 				A7EF1684249B70FC0066849D /* ETPCache.swift in Sources */,
+				A75DF0DB251C70DE00141E8C /* OTPFieldView.swift in Sources */,
 				A77D21EA24308B5F00374548 /* SceneDelegate.swift in Sources */,
 				A7EF167E249A5F6F0066849D /* ETPImageView.swift in Sources */,
+				A7291EF024F2944B0028A930 /* AVViewController.swift in Sources */,
 				A7291EE824F1175D0028A930 /* APIHelper.swift in Sources */,
 				A75FDCB8249E56D2006BACC7 /* ETPActionBar.swift in Sources */,
 				A77D2200243095BD00374548 /* Font-Ex.swift in Sources */,

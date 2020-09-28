@@ -53,7 +53,7 @@ class ETPHtttp {
         self.put(URL(string: url)!,body: body, headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func put<T : Codable,B :Codable>(_ url: URL, body: B?, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+    func put<T : Codable,B :Codable>(_ url: URL, body: B, headers:[String: String]? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback:  ((_ error : Error?) -> Void)? = nil,  loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         
@@ -67,7 +67,7 @@ class ETPHtttp {
         self.request(request,headers: headers, successCallback: successCallback, errorCallback: errorCallback,loadingCallback : loadingCallback)
     }
     
-    func request<T : Codable>(_ request: URLRequest, headers:[String: String]? = nil,successCallback: @escaping (_ response : T?) -> Void, errorCallback:((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+    func request<T : Codable>(_ request: URLRequest, headers:[String: String]? = nil,successCallback: @escaping (_ response : T) -> Void, errorCallback:((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         loadingCallback?(true)
         var newReq = request
         headers?.forEach{ key, value in

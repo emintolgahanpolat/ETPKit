@@ -36,7 +36,7 @@ class APIHelper{
         self.params = params
     }
     
-    func build<T:Codable,B:Codable>(_ body :B? = nil, successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+    func build<T:Codable,B:Codable>(_ body :B, successCallback: @escaping (_ response : T) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         
         var newUrl = baseURL + path.rawValue
         
@@ -51,13 +51,11 @@ class APIHelper{
               
         var request = URLRequest(url: URL(string: newUrl)!)
         request.httpMethod = httpMethod.rawValue
-        if let mBody = body{
-            do {
-                let jsonBody = try JSONEncoder().encode(mBody)
-                request.httpBody = jsonBody
-            }catch let error {
-                errorCallback?(error)
-            }
+        do {
+            let jsonBody = try JSONEncoder().encode(body)
+            request.httpBody = jsonBody
+        }catch let error {
+            errorCallback?(error)
         }
         request.setValue("Bearer \(UserDefaults.User.accessToken)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -66,14 +64,54 @@ class APIHelper{
         ETPHtttp.shared.request(request, successCallback: successCallback,errorCallback:errorCallback,loadingCallback:loadingCallback )
     }
     
-    func build<T:Codable>( successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+    func build<T:Codable>(successCallback: @escaping (_ response : T?) -> Void, errorCallback: ((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
         var request = URLRequest(url: URL(string: baseURL + path.rawValue)!)
         request.httpMethod = httpMethod.rawValue
         request.setValue("Bearer \(UserDefaults.User.accessToken)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("tr-TR", forHTTPHeaderField: "Accept-Language")
         
-        ETPHtttp.shared.request(request, successCallback: successCallback,errorCallback:errorCallback,loadingCallback:loadingCallback )
+        self.request(request, successCallback: successCallback,errorCallback:errorCallback,loadingCallback:loadingCallback )
     }
-    
+   
+    func request<T : Codable>(_ request: URLRequest, headers:[String: String]? = nil,successCallback: @escaping (_ response : T) -> Void, errorCallback:((_ error : Error?) -> Void)? = nil, loadingCallback: ((_ loading : Bool) -> Void)? = nil){
+           loadingCallback?(true)
+           var newReq = request
+           headers?.forEach{ key, value in
+               newReq.setValue(value, forHTTPHeaderField: key)
+           }
+          
+           
+           let identifier = UUID()
+           print("------\(identifier) Request Start------")
+           print("Url : \(String(describing: newReq.url))")
+           
+           print("Header : \(String(describing: headers))")
+           print("Method : \(String(describing: newReq.httpMethod))")
+           print("Body : \(String(describing: newReq.httpBody))")
+           print("------\(identifier) Request End------")
+           URLSession.shared.dataTask(with: newReq, completionHandler: { data, response, error in
+               loadingCallback?(false)
+               print("------\(identifier) Response Start------")
+               print("Url : \(String(describing: newReq.url))")
+               print("Header : \(String(describing: headers))")
+               print("Method : \(String(describing: newReq.httpMethod))")
+               print("Body : \(String(describing: newReq.httpBody))")
+               if let data = data {
+                   do {
+                       if let res = try JSONDecoder().decode(T?.self, from: data){
+                           print("Response : \(res)")
+                           successCallback(res)
+                       }
+                   } catch let error {
+                       errorCallback?(error)
+                       print("Error : \(error)")
+                   }
+               }
+               
+               print("------\(identifier) Response End------")
+               
+           }).resume()
+       }
+       
 }
